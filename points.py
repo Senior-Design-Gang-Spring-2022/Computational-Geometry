@@ -11,3 +11,6 @@ class Point():
 
     def __str__(self):
         return (self.x, self.y)
+
+    def get_coord(self):
+        return (self.x, self.y)
