@@ -10,3 +10,5 @@ def test_gety():
 
 def test_get_coord():
     assert c.get_coord() == (3, 5)
+
+print("Random Changes")
