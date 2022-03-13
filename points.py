@@ -9,8 +9,5 @@ class Point():
     def gety(self):
         return self.y
 
-    def __str__(self):
-        return (self.x, self.y)
-
     def get_coord(self):
         return (self.x, self.y)
