@@ -1,6 +1,7 @@
 from points import Point
 from lines import Line_Segment
 from circle import Circle
+from CompGeo import CompGeo
 
 import random
 randomx1 = random.randint(-1000,1000)
@@ -35,3 +36,13 @@ def test_get_center():
 
 def test_get_radius():
     assert circle1.get_radius() == 7.0
+
+geo = CompGeo()
+def test_intersect(): 
+    assert geo.line_intersect(1,2,6,0,3,1,7,8) == (3.09302, 1.16279)
+    assert geo.line_intersect(5,0,10,0,0,5,10,5) == 0
+    assert geo.line_intersect(0,0,0,10,1,0,10,0) == (0,0)
+    
+def test_distance():
+    assert geo.find_distance(2,4,0,0) == 4.47
+    assert geo.find_distance(5,9, 22, 37) == 32.76 
