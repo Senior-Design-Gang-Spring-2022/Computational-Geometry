@@ -4,12 +4,12 @@ from circle import Circle
 from CompGeo import CompGeo
 
 import random
-randomx1 = random.randint(-1000,1000)
-randomy1 = random.randint(-1000,1000)
+randomx1 = 5.29
+randomy1 = 3.30
 point1 = Point(randomx1, randomy1)
 
-randomx2 = random.randint(-1000,1000)
-randomy2 = random.randint(-1000,1000)
+randomx2 = 9.32
+randomy2 = 14.87
 point2 = Point(randomx2, randomy2)
 
 line1 = Line_Segment(point1, point2)
@@ -31,6 +31,9 @@ def test_get_coord():
 def test_get_line_segment():
     assert line1.get_line_segment() == ((randomx1, randomy1), (randomx2, randomy2))
 
+def test_length_of_line():
+    assert line1.length_of_line() == 12.25
+
 def test_get_center():
     assert circle1.get_center() == (randomx1, randomy1)
 
@@ -38,11 +41,11 @@ def test_get_radius():
     assert circle1.get_radius() == 7.0
 
 geo = CompGeo()
-def test_intersect(): 
+def test_intersect():
     assert geo.line_intersect(1,2,6,0,3,1,7,8) == (3.09302, 1.16279)
     assert geo.line_intersect(5,0,10,0,0,5,10,5) == 0
     assert geo.line_intersect(0,0,0,10,1,0,10,0) == (0,0)
-    
+
 def test_distance():
     assert geo.find_distance(2,4,0,0) == 4.47
-    assert geo.find_distance(5,9, 22, 37) == 32.76 
+    assert geo.find_distance(5,9, 22, 37) == 32.76

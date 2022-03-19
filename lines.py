@@ -15,5 +15,19 @@ class Line_Segment:
         self.__point1 = point1
         self.__point2 = point2
 
+    def length_of_line(self):
+        x1 = self.__point1.getx()
+        y1 = self.__point1.gety()
+        x2 = self.__point2.getx()
+        y2 = self.__point2.gety()
+        part1 = (x2-x1)**2.0
+        part2 = (y2-y1)**2.0
+        addition = part1 + part2
+        half = 1.0/2.0
+        distance = addition**half
+        distance = round(distance, 2)
+        return distance
+
+
     def __str__(self):
         return f"({self.__point1}, {self.__point2})"

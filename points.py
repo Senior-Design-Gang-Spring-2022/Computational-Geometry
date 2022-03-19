@@ -1,5 +1,7 @@
 class Point:
-    def __init__(self, x=0, y=0):
+    def __init__(self, x, y):
+        assert isinstance(x,float), f"Entered value of x: {x} is not a float"
+        assert isinstance(y,float), f"Entered value of x: {y} is not a float"
         self.__x = x
         self.__y = y
 
@@ -7,12 +9,14 @@ class Point:
         return self.__x
 
     def setx(self, x):
+        assert isinstance(x,float), f"Entered value of x: {x} is not a float"
         self.__x = x
 
     def gety(self):
         return self.__y
 
     def sety(self, y):
+        assert isinstance(y,float), f"Entered value of x: {y} is not a float"
         self.__y = y
 
     def get_coord(self):
