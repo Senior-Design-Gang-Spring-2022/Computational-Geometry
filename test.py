@@ -2,6 +2,7 @@ from points import Point
 from lines import Line_Segment
 from circle import Circle
 from CompGeo import CompGeo
+import points as points
 
 import random
 randomx1 = 5.29
@@ -46,6 +47,16 @@ def test_intersect():
     assert geo.line_intersect(5,0,10,0,0,5,10,5) == 0
     assert geo.line_intersect(0,0,0,10,1,0,10,0) == (0,0)
 
-def test_distance():
-    assert geo.find_distance(2,4,0,0) == 4.47
-    assert geo.find_distance(5,9, 22, 37) == 32.76
+# def test_distance():
+#     assert geo.find_distance(2,4,0,0) == 4.47
+#     assert geo.find_distance(5,9, 22, 37) == 32.76
+
+
+def test_closest_point():
+    # Driver code
+    P = [Point(2.0, 3.0), Point(12.0, 30.0),
+    Point(40.0, 50.0), Point(5.0, 1.0),
+    Point(12.0, 10.0), Point(3.0, 4.0)]
+    n = len(P)
+    assert points.closest(P, n) == 1.4142135623730951
+
