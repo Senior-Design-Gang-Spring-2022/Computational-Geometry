@@ -97,9 +97,19 @@ def test_intersect():
 
 
 def test_closest_point():
-    # Driver code
     P = [Point(2.0, 3.0), Point(12.0, 30.0),
     Point(40.0, 50.0), Point(5.0, 1.0),
     Point(12.0, 10.0), Point(3.0, 4.0)]
     n = len(P)
     assert main.closest(P, n) == 1.41421
+
+def test_convex_hull():
+    points = []
+    points.append(Point(0.0, 3.0))
+    points.append(Point(2.0, 2.0))
+    points.append(Point(1.0, 1.0))
+    points.append(Point(2.0, 1.0))
+    points.append(Point(3.0, 0.0))
+    points.append(Point(0.0, 0.0))
+    points.append(Point(3.0, 3.0))
+    assert main.convexHull(points, len(points)) == [0.0, 3.0, 0.0, 0.0, 3.0, 0.0, 3.0, 3.0]
