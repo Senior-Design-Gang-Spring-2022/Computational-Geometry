@@ -1,10 +1,14 @@
 from points import Point
 from lines import Line_Segment
 from circle import Circle
+from line_intersection import Line_Segment_Intersection
+from convex_hull import ConvexHull
+from closest_points import ClosestPoints
+
 import points as points
 import main as main
-
 import random
+
 randomx1 = 5.29
 randomy1 = 3.30
 point1 = Point(randomx1, randomy1)
@@ -58,8 +62,9 @@ def test_intersect():
     x8 = 8.0
     point4 = Point(x7,x8)
     line2 = Line_Segment(point3, point4)
-    assert main.line_intersect(line1,line2).getx() == 3.09302
-    assert main.line_intersect(line1,line2).gety() == 1.16279
+    line_intersection = Line_Segment_Intersection()
+    assert line_intersection.line_intersect(line1,line2).getx() == 3.09302
+    assert line_intersection.line_intersect(line1,line2).gety() == 1.16279
 
     x1 = 5.0
     x2 = 0.0
@@ -76,7 +81,7 @@ def test_intersect():
     x8 = 5.0
     point4 = Point(x7,x8)
     line2 = Line_Segment(point3, point4)
-    assert main.line_intersect(line1,line2) == '-'
+    assert line_intersection.line_intersect(line1,line2) == '-'
 
     x1 = 0.0
     x2 = 0.0
@@ -93,17 +98,38 @@ def test_intersect():
     x8 = 0.0
     point4 = Point(x7,x8)
     line2 = Line_Segment(point3, point4)
-    assert main.line_intersect(line1,line2) == '-'
+    #line_intersection = Line_Segment_Intersection()
+    assert line_intersection.line_intersect(line1,line2) == '-'
 
+# def test_brute_force():
+#     P = [Point(2.0, 3.0), Point(12.0, 30.0),Point(40.0, 50.0), Point(5.0, 1.0),
+#     Point(12.0, 10.0), Point(3.0, 4.0)]
+#     n = 6
+#     cp = ClosestPoints()
+#     assert cp.bruteForce(P, n) == 3.60555
+
+def test_brute_force_invalid_arguments(): 
+    P3 = [Point(2.0, 3.0)]
+    n3 = 1
+    cp3 = ClosestPoints()
+    assert cp3.bruteForce(P3,n3) == None
+
+    P2 = [Point(2.0,3.0), Point(12.0,30.0), Point(40.0, 50.0)]
+    n2 = 2
+    assert cp.bruteForce(P2, n2) == -1
 
 def test_closest_point():
-    P = [Point(2.0, 3.0), Point(12.0, 30.0),
-    Point(40.0, 50.0), Point(5.0, 1.0),
-    Point(12.0, 10.0), Point(3.0, 4.0)]
+    P = [Point(2.0, 3.0)]
     n = len(P)
-    assert main.closest(P, n) == 1.41421
+    cp3 = ClosestPoints()
+    assert isinstance(cp, ClosestPoints)
+    assert cp.closest(P, n) == 1.41421
+
 
 def test_convex_hull():
+    convex_hull = ConvexHull()
+    assert isinstance(convex_hull, ConvexHull)
+
     points = []
     points.append(Point(0.0, 3.0))
     points.append(Point(2.0, 2.0))
@@ -112,4 +138,11 @@ def test_convex_hull():
     points.append(Point(3.0, 0.0))
     points.append(Point(0.0, 0.0))
     points.append(Point(3.0, 3.0))
-    assert main.convexHull(points, len(points)) == [0.0, 3.0, 0.0, 0.0, 3.0, 0.0, 3.0, 3.0]
+    for elem in points: 
+        assert isinstance(elem, Point)
+    ch = ConvexHull()
+    assert ch.convexHull(points, len(points)) == [0.0, 3.0, 0.0, 0.0, 3.0, 0.0, 3.0, 3.0]
+
+
+    
+    

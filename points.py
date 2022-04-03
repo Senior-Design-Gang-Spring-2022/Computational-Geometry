@@ -1,5 +1,6 @@
 import math
 import copy
+
 class Point:
     def __init__(self, x, y):
         assert isinstance(x,float), "Entered value of x is not a float"
@@ -24,5 +25,5 @@ class Point:
     def get_coord(self):
         return (self.x, self.y)
 
-    def __str__(self):
-        return f'({self.x}, {self.y})'
+    # def __str__(self):
+    #     return f'({self.x}, {self.y})'
