@@ -4,6 +4,7 @@ from circle import Circle
 from line_intersection import Line_Segment_Intersection
 from convex_hull import ConvexHull
 from closest_points import ClosestPoints
+from input_choice import InputChoice
 
 import points as points
 import main as main
@@ -116,14 +117,15 @@ def test_brute_force_invalid_arguments():
 
     P2 = [Point(2.0,3.0), Point(12.0,30.0), Point(40.0, 50.0)]
     n2 = 2
-    assert cp.bruteForce(P2, n2) == -1
+    assert cp3.bruteForce(P2, n2) == -1
 
 def test_closest_point():
     P = [Point(2.0, 3.0)]
     n = len(P)
     cp3 = ClosestPoints()
-    assert isinstance(cp, ClosestPoints)
-    assert cp.closest(P, n) == 1.41421
+    assert isinstance(cp3, ClosestPoints)
+    #assert cp3.closest(P, n) == 1.41421
+    assert cp3.closest(P,n) == None 
 
 
 def test_convex_hull():
@@ -143,6 +145,14 @@ def test_convex_hull():
     ch = ConvexHull()
     assert ch.convexHull(points, len(points)) == [0.0, 3.0, 0.0, 0.0, 3.0, 0.0, 3.0, 3.0]
 
+#Will test if the user is asked if they want one by one input, CSV, or no input, #with hard coded values.
+def test_user_input_choices(): 
+    choice = InputChoice(1)
+    assert choice == 1
+    choice = InputChoice(2)
+    assert choice == 2
+    choice = InputChoice(3)
+    assert choice == 3
 
     
     
