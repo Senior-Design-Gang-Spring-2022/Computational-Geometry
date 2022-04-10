@@ -1,3 +1,6 @@
 {
+  "main.py": true,
+  "test.py::test_brute_force": true,
+  "test.py::test_closest_point": true,
   "test_geo.py::test_intersect": true
 }
