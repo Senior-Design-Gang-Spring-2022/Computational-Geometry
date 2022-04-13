@@ -173,3 +173,14 @@ def test_user_actual_input():
         assert (choice <= 3 and choice >= 0)
     else: 
         assert testuserentry == False 
+
+#Should test if a pointset is returned with the onebyone method. 
+def test_one_by_one_points(): 
+    testit = False
+    if (testit is True): 
+        Pointset = []
+        Pointset = take_input(1)
+        for elem in Pointset: 
+            assert isinstance(elem, Point)
+    else: 
+        assert (testit is False)
