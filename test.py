@@ -1,3 +1,4 @@
+from curses.ascii import isdigit
 from points import Point
 from lines import Line_Segment
 from circle import Circle
@@ -153,6 +154,22 @@ def test_user_input_choices():
     assert choice == 2
     choice = InputChoice(3)
     assert choice == 3
+    choice = InputChoice(4) 
+    assert choice == 0
+    choice = InputChoice(0)
+    assert choice == 0
+    choice = InputChoice("asdf")
+    assert choice == 0
 
-    
-    
+# Will test if no input is entered, and ask the user to input specifics.  
+def test_user_actual_input(): 
+    testuserentry = True 
+    if (testuserentry == True): 
+        choice = InputChoice()
+        try: 
+            choice = int(choice)
+        except ValueError: 
+            choice = 0 
+        assert (choice <= 3 and choice >= 0)
+    else: 
+        assert testuserentry == False 
